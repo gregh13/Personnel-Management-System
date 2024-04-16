@@ -1,0 +1,138 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #DEB992;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    /* Ensures items within these divs are vertically centered */
+}
+
+.nav-right a,
+.nav-right h1 {
+    /* margin-left: 20px; */
+    /* Adds some space between the navigation items */
+}
+
+.navbar-icon {
+    margin: 2% 5% 2% 10%;
+    width: 15%;
+    height: auto;
+    /* Adds some space between the icon and the text */
+}
+
+.navbar-text {
+    color: #F24E1E;
+
+}
+
+.nav-bar-icon {
+    width: 50%;
+    height: auto;
+}
+
+.link {
+    font-style: normal;
+    font-weight: 100;
+    font-size: 35px;
+    text-align: center;
+    padding: 0 5vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {}
+
+a.active>h1.link {
+    color: orange;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.toggle-button {
+    display: none;
+    background-color: #051622;
+    border: none;
+    /* Additional styling as needed */
+}
+
+.menu-icon {
+    width: 40%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .toggle-button {
+        display: block;
+        /* Show toggle button */
+        position: absolute;
+        right: 0px;
+        top: 15px;
+        /* Adjust based on your layout */
+    }
+
+    .nav-right {
+        display: none;
+        position: absolute;
+        background-color: rgba(13, 58, 89);
+        /* Background color of dropdown */
+        top: 75px;
+        /* Adjust this value to match your navbar's height */
+        right: 0;
+        width: 100%;
+        /* Or specify a width */
+        z-index: 1000;
+        /* Ensure it's above other content */
+        flex-direction: column;
+        align-items: start;
+        /* Align items to the start of the container */
+        padding: 10px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        /* Optional: Adds a shadow for depth */
+    }
+
+    .nav-right.active {
+        display: flex;
+        /* Using flexbox to stack links vertically */
+        align-items: center;
+    }
+
+    .nav-right h1 {
+        margin: 3% 0;
+    }
+
+    .nav-right a {
+        /* padding: 10px 20px; Add padding to links for better touch targets */
+        border-bottom: 1px solid rgba(27, 160, 152, 1);
+        /* Optional: Adds a separator between links */
+        width: 85%;
+        /* Ensures link width matches container width */
+        box-sizing: border-box;
+        /* Ensures padding doesn't add to the width */
+        text-align: center;
+        /* Align text to the left */
+    }
+
+    .nav-right.active .clickable {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-right a:last-child {
+        border-bottom: none;
+        /* Removes bottom border from the last link */
+    }
+
+    /* Hide the toggle button when menu is not active */
+    .nav-right:not(.active)+.toggle-button {
+        display: block;
+    }
+}
